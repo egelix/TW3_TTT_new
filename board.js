@@ -49,7 +49,7 @@ function checkBoards() {
   let board = module.exports.getEmptyBoard();
   console.log(board);
 
-  board = [["X", "O", "."], ["X", "O", "."][("0", "X", ".")]];
+  board = [["X", "O", "."], ["X", "O", "."],["0", "X", "."]];
 
   console.log(`Should give out:"
 
@@ -62,52 +62,52 @@ function checkBoards() {
        ---+---+---`);
   module.exports.displayBoard(board);
 
-  board_1 = [
-    ["X", "O", "."],
-    ["X", "O", "."],
-    ["X", "X", "O"],
-  ];
-  console.log("Should return False");
-  console.log(isBoardFull(board_1));
+  // board_1 = [
+  //   ["X", "O", "."],
+  //   ["X", "O", "."],
+  //   ["X", "X", "O"],
+  // ];
+  // console.log("Should return False");
+  // console.log(isBoardFull(board_1));
 
-  board_2 = [
-    [".", "O", "O"],
-    [".", "O", "X"],
-    [".", "X", "X"],
-  ];
-  console.log("Should return False");
-  console.log(isBoardFull(board_2));
+  // board_2 = [
+  //   [".", "O", "O"],
+  //   [".", "O", "X"],
+  //   [".", "X", "X"],
+  // ];
+  // console.log("Should return False");
+  // console.log(isBoardFull(board_2));
 
-  board_3 = [
-    ["O", "O", "X"],
-    ["O", "X", "O"],
-    ["O", "X", "X"],
-  ];
-  console.log("Should return True");
-  console.log(isBoardFull(board_3));
+  // board_3 = [
+  //   ["O", "O", "X"],
+  //   ["O", "X", "O"],
+  //   ["O", "X", "X"],
+  // ];
+  // console.log("Should return True");
+  // console.log(isBoardFull(board_3));
 
-  board_4 = [
-    ["X", "O", "."],
-    ["X", "O", "."],
-    ["X", "X", "O"],
-  ];
-  console.log("Should return X");
-  console.log(getWinningPlayer(board_4));
+  // board_4 = [
+  //   ["X", "O", "."],
+  //   ["X", "O", "."],
+  //   ["X", "X", "O"],
+  // ];
+  // console.log("Should return X");
+  // console.log(getWinningPlayer(board_4));
 
-  board_5 = [
-    ["X", "O", "O"],
-    ["X", "O", "."],
-    ["O", "X", "X"],
-  ];
-  console.log("Should return O");
-  console.log(getWinningPlayer(board_5));
+  // board_5 = [
+  //   ["X", "O", "O"],
+  //   ["X", "O", "."],
+  //   ["O", "X", "X"],
+  // ];
+  // console.log("Should return O");
+  // console.log(getWinningPlayer(board_5));
 
-  board_6 = [
-    ["O", "O", "."],
-    ["O", "X", "."],
-    [".", "X", "."],
-  ];
-  console.log("Should return None");
-  console.log(getWinningPlayer(board_6));
+  // board_6 = [
+  //   ["O", "O", "."],
+  //   ["O", "X", "."],
+  //   [".", "X", "."],
+  // ];
+  // console.log("Should return None");
+  // console.log(getWinningPlayer(board_6));
 }
 checkBoards();
