@@ -21,6 +21,7 @@ function main() {
         alternate the value of `currentPlayer` from `X` to `O`
         */
     let currentPlayer = "X";
+    currentPlayer = currentPlayer === "X" ? "0" : "X";
 
     /* TODO
 

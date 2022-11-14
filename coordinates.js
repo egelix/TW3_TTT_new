@@ -1,7 +1,21 @@
 const prompt = require("prompt-sync")();
+const POSSIBLE_COORD1 = ["A", "a", "B", "b", "C", "c"];
+const POSSIBLE_COORD2 = ["1", "2", "3"];
 
 module.exports = {
   getPlayerMove: function (board, current_player) {
+    let coordinates = "";
+    let validCoord = false;
+    console.log(`Player ${current_player}, please enter coordinates: `)
+    while (validCoord === false) {
+      coordinates = prompt();
+      if POSSIBLE_COORD1.includes(coordinates[0]) && POSSIBLE_COORD2.includes(coordinates[2]) {
+        validCoord = true;
+        return coordinates;
+      } else {
+        console.log("Invalid Coordinates. Please enter again:")
+      }
+    }
     /*
         Should return the read coordinates for the tic tac toe board from the terminal.
         The coordinates should be in the format  letter, number where the letter is 

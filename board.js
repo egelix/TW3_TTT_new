@@ -1,12 +1,16 @@
 module.exports = {
-  getEmptyBoard: function () {
-    /*
-        Should return a list with 3 sublists.
-        Each sublist should contain 3 time the "." character
-        */
+  
+  getEmptyBoard: function () 
+  {
+    return [[".", ".", "."], [".", ".", "."], [".", ".", "."]];
   },
 
   displayBoard: function (board) {
+    return `  A B C\n1 ${board[0]}\n2 ${board[1]}\n3 ${board[2]}}`
+    // console.log([" ", "1", "2", "3"]
+    // 1, board[0],
+    // 2, board[1],
+    // 3, board[2])
     /*
         Should console.log the tic tac toe board in a format similar to
             1   2   3
@@ -36,7 +40,7 @@ module.exports = {
 
 // run this function to test whether you have correctly implemented the other function
 function checkBoards() {
-  let board = getEmptyBoard();
+  let board = module.exports.getEmptyBoard();
   console.log(board);
 
   board = [["X", "O", "."], ["X", "O", "."][("0", "X", ".")]];
@@ -50,7 +54,7 @@ function checkBoards() {
        ---+---+---
     C   0 | X | . 
        ---+---+---`);
-  displayBoard(board);
+  module.exports.displayBoard(board);
 
   board_1 = [
     ["X", "O", "."],
@@ -100,3 +104,4 @@ function checkBoards() {
   console.log("Should return None");
   console.log(getWinningPlayer(board_6));
 }
+checkBoards();
