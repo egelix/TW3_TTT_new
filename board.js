@@ -6,7 +6,13 @@ module.exports = {
   },
 
   displayBoard: function (board) {
-    return `  A B C\n1 ${board[0]}\n2 ${board[1]}\n3 ${board[2]}}`
+    console.log("       ","1"," ","2"," ","3")
+    console.log(`    A   ${board[0].join(" | ")}`)
+    console.log("       ---+---+---")
+    console.log(`    B   ${board[1].join(" | ")}`)
+    console.log("       ---+---+---")
+    console.log(`    C   ${board[2].join(" | ")}`)
+    console.log("       ---+---+---")
     // console.log([" ", "1", "2", "3"]
     // 1, board[0],
     // 2, board[1],
