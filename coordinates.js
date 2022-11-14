@@ -9,7 +9,7 @@ module.exports = {
     console.log(`Player ${current_player}, please enter coordinates: `)
     while (validCoord === false) {
       coordinates = prompt();
-      if POSSIBLE_COORD1.includes(coordinates[0]) && POSSIBLE_COORD2.includes(coordinates[2]) {
+      if (POSSIBLE_COORD1.includes(coordinates[0]) && POSSIBLE_COORD2.includes(coordinates[2])) {
         validCoord = true;
         return coordinates;
       } else {
