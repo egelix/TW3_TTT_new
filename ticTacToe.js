@@ -42,6 +42,10 @@ function main() {
         OR continue the while loop
         */
     let winningPlayer = board.getWinningPlayer(gameBoard);
+    if (winningPlayer) {
+      console.log(`${currentPlayer} wins!`)
+      break
+    }
     let itsATie = board.isBoardFull(gameBoard);
     if (itsATie) {
       console.log("It's a tie!")
