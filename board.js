@@ -45,6 +45,99 @@ module.exports = {
 
   getWinningPlayer: function (board) {
 
+    if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X') {
+      return 'X';
+    } else if (
+      board[1][0] === 'X' &&
+      board[1][1] === 'X' &&
+      board[1][2] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[2][0] === 'X' &&
+      board[2][1] === 'X' &&
+      board[2][2] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[0][0] === 'X' &&
+      board[1][0] === 'X' &&
+      board[2][0] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[0][1] === 'X' &&
+      board[1][1] === 'X' &&
+      board[2][1] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[0][2] === 'X' &&
+      board[1][2] === 'X' &&
+      board[2][2] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[0][0] === 'X' &&
+      board[1][1] === 'X' &&
+      board[2][2] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[2][0] === 'X' &&
+      board[1][1] === 'X' &&
+      board[0][2] === 'X'
+    ) {
+      return 'X';
+    } else if (
+      board[0][0] === 'O' &&
+      board[0][1] === 'O' &&
+      board[0][2] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[1][0] === 'O' &&
+      board[1][1] === 'O' &&
+      board[1][2] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[2][0] === 'O' &&
+      board[2][1] === 'O' &&
+      board[2][2] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[0][0] === 'O' &&
+      board[1][0] === 'O' &&
+      board[2][0] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[0][1] === 'O' &&
+      board[1][1] === 'O' &&
+      board[2][1] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[0][2] === 'O' &&
+      board[1][2] === 'O' &&
+      board[2][2] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[0][0] === 'O' &&
+      board[1][1] === 'O' &&
+      board[2][2] === 'O'
+    ) {
+      return 'O';
+    } else if (
+      board[2][0] === 'O' &&
+      board[1][1] === 'O' &&
+      board[0][2] === 'O'
+    ) {
+      return 'O';
+    } else return 'none';
     // board[0][0] && board[0][1] && board [0][2] === "X" ? console.log() 
     
 
@@ -99,40 +192,29 @@ function checkBoards() {
   console.log("Should return True");
   console.log(module.exports.isBoardFull(board_3));
 
-  // board_4 = [
-  //   ["X", "O", "."],
-  //   ["X", "O", "."],
-  //   ["X", "X", "O"],
-  // ];
-  // console.log("Should return X");
-  // console.log(getWinningPlayer(board_4));
+  board_4 = [
+    ["X", "O", "."],
+    ["X", "O", "."],
+    ["X", "X", "O"],
+  ];
+  console.log("Should return X");
+  console.log(module.exports.getWinningPlayer(board_4));
 
-  // board_5 = [
-  //   ["X", "O", "O"],
-  //   ["X", "O", "."],
-  //   ["O", "X", "X"],
-  // ];
-  // console.log("Should return O");
-  // console.log(getWinningPlayer(board_5));
+  board_5 = [
+    ["X", "O", "O"],
+    ["X", "O", "."],
+    ["O", "X", "X"],
+  ];
+  console.log("Should return O");
+  console.log(module.exports.getWinningPlayer(board_5));
 
-  // board_6 = [
-  //   ["O", "O", "."],
-  //   ["O", "X", "."],
-  //   [".", "X", "."],
-  // ];
-  // console.log("Should return None");
-  // console.log(getWinningPlayer(board_6));
+  board_6 = [
+    ["O", "O", "."],
+    ["O", "X", "."],
+    [".", "X", "."],
+  ];
+  console.log("Should return None");
+  console.log(module.exports.getWinningPlayer(board_6));
 }
 
-
-
-// winningBoards = [
-//   [0,1,2],
-//   [3,4,5],
-//   [6,7,8],
-//   [0,3,6],
-//   [1,4,7],
-//   [2,5,8],
-//   [2,4,6],
-//   [0,4,8],
-// ];
+checkBoards();
