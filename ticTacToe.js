@@ -11,6 +11,7 @@ function main() {
   let gameMode = menu.getMenuOption();
   let gameBoard = board.getEmptyBoard();
   let isGameRunning = true;
+  let currentPlayer = "X";
 
   while (isGameRunning) {
     board.displayBoard(gameBoard);
@@ -20,8 +21,8 @@ function main() {
         in each new iteration of the while loop the program should 
         alternate the value of `currentPlayer` from `X` to `O`
         */
-    let currentPlayer = "X";
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    
+    
 
     /* TODO
 
@@ -32,6 +33,7 @@ function main() {
     let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
 
     gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
 
     /* TODO 
 
@@ -41,6 +43,10 @@ function main() {
         */
     let winningPlayer = board.getWinningPlayer(gameBoard);
     let itsATie = board.isBoardFull(gameBoard);
+    if (itsATie) {
+      console.log("It's a tie!")
+      break
+    }
   }
 }
 

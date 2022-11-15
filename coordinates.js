@@ -79,18 +79,21 @@ module.exports = {
   },
 };
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max)
+}
 // run this function to test whether you have correctly implemented the other functions
-function checkCoordinates() {
-  board_1 = [
-    ["X", "X", "."],
-    ["X", ".", "."],
-    ["X", "X", "."],
-  ];
-  console.log(
-    "It should console.log the coordinates selected by the human player"
-  );
-  let coordinates = module.exports.getPlayerMove(board_1, "X");
-  console.log(coordinates);
+// function checkCoordinates() {
+//   board_1 = [
+//     ["X", "X", "."],
+//     ["X", ".", "."],
+//     ["X", "X", "."],
+//   ];
+//   console.log(
+//     "It should console.log the coordinates selected by the human player"
+//   );
+//   let coordinates = module.exports.getPlayerMove(board_1, "X");
+//   console.log(coordinates);
 
   // board_2 = [
   //   ["O", "O", "."],
@@ -135,10 +138,10 @@ function checkCoordinates() {
   // ];
   // console.log("The console.loged coordinate should either (0, 2) or (2, 0)");
   // console.log(getUnbeatableAiCoordinates(board_6));
-}
-board_1 = [
-  ["X", "O", "."],
-  ["X", "O", "."],
-  ["X", "X", "O"],
-];
-console.log(module.exports.getPlayerMove(board_1, "X"));
+// }
+// board_1 = [
+//   ["X", "O", "."],
+//   ["X", "O", "."],
+//   ["X", "X", "O"],
+// ];
+// console.log(module.exports.getPlayerMove(board_1, "X"));
