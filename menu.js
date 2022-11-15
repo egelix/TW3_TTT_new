@@ -4,11 +4,18 @@ module.exports = {
     console.log(
       'Choose from the following options:\n 1. Human vs Human\n 2. Random AI vs Random AI\n 3. Human vs Random AI\n 4. Human vs Unbeatable AI');
     let menu = prompt();
+    if (menu === '1') {
+      return 1;
+    } else if (menu === '2') {
+      return 2;
+    } else if (menu === '3') {
+      return 3;
+    } else if (menu === '4') {
+      return 4;
+    }
 
     while (menu != '1' && menu != '2' && menu != '3' && menu != '4') {
       console.log('Please enter a number between 1 and 4');
-      console.log(
-        'Choose from the following options:\n 1. Human vs Human\n 2. Random AI vs Random AI\n 3. Human vs Random AI\n 4. Human vs Unbeatable AI');
       let menu = prompt();
       if (menu === '1') {
         return 1;
@@ -19,7 +26,8 @@ module.exports = {
       } else if (menu === '4') {
         return 4;
       }
-    }
+      }
+    
 
     /*
         Should print a menu with the following options:
