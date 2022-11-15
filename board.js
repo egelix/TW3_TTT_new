@@ -13,20 +13,16 @@ module.exports = {
     console.log("       ---+---+---")
     console.log(`    C   ${board[2].join(" | ")}`)
     console.log("       ---+---+---")
-    // console.log([" ", "1", "2", "3"]
-    // 1, board[0],
-    // 2, board[1],
-    // 3, board[2])
-    /*
-        Should console.log the tic tac toe board in a format similar to
-            1   2   3
-            A   X | O | . 
-            ---+---+---
-            B   X | O | .
-            --+---+---
-            C   0 | X | . 
-            --+---+---
-        */
+ 
+        // Should console.log the tic tac toe board in a format similar to
+        //     1   2   3
+        //     A   X | O | . 
+        //     ---+---+---
+        //     B   X | O | .
+        //     --+---+---
+        //     C   0 | X | . 
+        //     --+---+---
+        // */
   },
 
   isBoardFull: function (board) {
@@ -48,6 +44,12 @@ module.exports = {
   },
 
   getWinningPlayer: function (board) {
+
+    // board[0][0] && board[0][1] && board [0][2] === "X" ? console.log() 
+    
+
+
+
     /*
       Should return the player that wins based on the tic tac toe rules.
       If no player has won, than "None" is returned.
@@ -121,4 +123,16 @@ function checkBoards() {
   // console.log("Should return None");
   // console.log(getWinningPlayer(board_6));
 }
-checkBoards();
+
+
+
+// winningBoards = [
+//   [0,1,2],
+//   [3,4,5],
+//   [6,7,8],
+//   [0,3,6],
+//   [1,4,7],
+//   [2,5,8],
+//   [2,4,6],
+//   [0,4,8],
+// ];
