@@ -5,14 +5,18 @@ const POSSIBLE_COORD2 = ["1", "2", "3"];
 module.exports = {
   getPlayerMove: function (board, current_player) {
     let coordinates = "";
+    let newCoordinates = "";
     let validCoord = false;
     console.log(`Player ${current_player}, please enter coordinates: `)
-    while (validCoord === false) {
-      coordinates = prompt();
-          
+    while (true) {
+      coordinates = prompt();          
       if (POSSIBLE_COORD1.includes(coordinates[0].toLowerCase()) && POSSIBLE_COORD2.includes(coordinates[1])) {
-        validCoord = true;
-        return coordinates;
+        newCoordinates = module.exports.translateCoordinates(coordinates);
+        if (board[newCoordinates[0]][newCoordinates[1]] === ".") {
+          return newCoordinates;
+        } else {
+          console.log("Coordinates already taken. Please try again: ")
+        }
       } else if (coordinates.toLowerCase() === "quit") {
         process.exit(1);
       } else {
@@ -43,7 +47,16 @@ module.exports = {
         should stop.
         */
   },
-  
+  translateCoordinates: function (coordinates) {    
+    let newCoordinates = [];
+    for (let i = 0; i < POSSIBLE_COORD1.length; i++) {
+      if (POSSIBLE_COORD1[i] === coordinates[0].toLowerCase()) {
+        newCoordinates.push(i);
+      }
+    }
+    newCoordinates.push(coordinates[1] - 1);
+    return newCoordinates.join("").toString();
+  },
   getRandomAiCoordinates: function (board, current_player) {
     /*
         Should return a tuple of 2 numbers. 
