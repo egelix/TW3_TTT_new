@@ -30,6 +30,17 @@ module.exports = {
   },
 
   isBoardFull: function (board) {
+
+    boardFull = true
+
+    for (let i = 0; i < board.length; i++) {
+      if (board[i].includes(".")) {
+        return false;
+      } else {
+        return boardFull;
+      }
+    }
+
     /*
         should return True if there are no more empty place on the board,
         otherwise should return False
@@ -49,7 +60,7 @@ function checkBoards() {
   let board = module.exports.getEmptyBoard();
   console.log(board);
 
-  board = [["X", "O", "."], ["X", "O", "."],["0", "X", "."]];
+  board = [["X", "O", "."],["X", "O", "."],["0", "X", "."]];
 
   console.log(`Should give out:"
 
@@ -62,29 +73,29 @@ function checkBoards() {
        ---+---+---`);
   module.exports.displayBoard(board);
 
-  // board_1 = [
-  //   ["X", "O", "."],
-  //   ["X", "O", "."],
-  //   ["X", "X", "O"],
-  // ];
-  // console.log("Should return False");
-  // console.log(isBoardFull(board_1));
+  board_1 = [
+    ["X", "O", "."],
+    ["X", "O", "."],
+    ["X", "X", "O"],
+  ];
+  console.log("Should return False");
+  console.log(module.exports.isBoardFull(board_1));
 
-  // board_2 = [
-  //   [".", "O", "O"],
-  //   [".", "O", "X"],
-  //   [".", "X", "X"],
-  // ];
-  // console.log("Should return False");
-  // console.log(isBoardFull(board_2));
+  board_2 = [
+    [".", "O", "O"],
+    [".", "O", "X"],
+    [".", "X", "X"],
+  ];
+  console.log("Should return False");
+  console.log(module.exports.isBoardFull(board_2));
 
-  // board_3 = [
-  //   ["O", "O", "X"],
-  //   ["O", "X", "O"],
-  //   ["O", "X", "X"],
-  // ];
-  // console.log("Should return True");
-  // console.log(isBoardFull(board_3));
+  board_3 = [
+    ["O", "O", "X"],
+    ["O", "X", "O"],
+    ["O", "X", "X"],
+  ];
+  console.log("Should return True");
+  console.log(module.exports.isBoardFull(board_3));
 
   // board_4 = [
   //   ["X", "O", "."],
