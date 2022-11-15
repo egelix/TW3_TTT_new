@@ -29,7 +29,7 @@ function main() {
         the programm should should choose betwen the functions
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
         */
-    let humanCoord = coordinate.getPlayerMove(board, currentPlayer);
+    let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
 
     gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
 
