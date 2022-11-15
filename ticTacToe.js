@@ -13,7 +13,7 @@ function main() {
   let isGameRunning = true;
 
   while (isGameRunning) {
-    board.displayBoard(board);
+    board.displayBoard(gameBoard);
 
     /* TODO
 
@@ -21,7 +21,7 @@ function main() {
         alternate the value of `currentPlayer` from `X` to `O`
         */
     let currentPlayer = "X";
-    currentPlayer = currentPlayer === "X" ? "0" : "X";
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
 
     /* TODO
 

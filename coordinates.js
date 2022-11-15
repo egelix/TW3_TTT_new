@@ -6,7 +6,6 @@ module.exports = {
   getPlayerMove: function (board, current_player) {
     let coordinates = "";
     let newCoordinates = "";
-    let validCoord = false;
     console.log(`Player ${current_player}, please enter coordinates: `)
     while (true) {
       coordinates = prompt();          
@@ -137,5 +136,9 @@ function checkCoordinates() {
   // console.log("The console.loged coordinate should either (0, 2) or (2, 0)");
   // console.log(getUnbeatableAiCoordinates(board_6));
 }
-
-checkCoordinates();
+board_1 = [
+  ["X", "O", "."],
+  ["X", "O", "."],
+  ["X", "X", "O"],
+];
+console.log(module.exports.getPlayerMove(board_1, "X"));
