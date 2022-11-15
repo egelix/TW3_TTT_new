@@ -9,7 +9,8 @@ module.exports = {
     console.log(`Player ${current_player}, please enter coordinates: `)
     while (validCoord === false) {
       coordinates = prompt();
-      if (POSSIBLE_COORD1.includes(coordinates[0].toLowerCase()) && POSSIBLE_COORD2.includes(coordinates[1]) && board[coordinates[0][coordinates[1] === "."]]) {
+          
+      if (POSSIBLE_COORD1.includes(coordinates[0].toLowerCase()) && POSSIBLE_COORD2.includes(coordinates[1])) {
         validCoord = true;
         return coordinates;
       } else if (coordinates.toLowerCase() === "quit") {
@@ -18,6 +19,18 @@ module.exports = {
         console.log("Invalid Coordinates. Please enter again:")
       }
     }
+    // let indexOnBoard1 = null;
+    // let indexOnBoard2 = coordinates2 - 1;
+    //   for (let i = 0; i < POSSIBLE_COORD1.length; i++) {
+    //     if (POSSIBLE_COORD1[i] === coordinates[0].toLowerCase) {
+    //         indexOnBoard1 = i;
+    //     }
+    //   }
+     
+    //   if (board[indexOnBoard1][indexOnBoard2] !== ".") {
+    //     console.log("Coordinates already taken. Please enter again: ")
+    
+    
     /*
         Should return the read coordinates for the tic tac toe board from the terminal.
         The coordinates should be in the format  letter, number where the letter is 
@@ -30,7 +43,7 @@ module.exports = {
         should stop.
         */
   },
-
+  
   getRandomAiCoordinates: function (board, current_player) {
     /*
         Should return a tuple of 2 numbers. 
