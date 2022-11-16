@@ -12,7 +12,8 @@ function main() {
   let gameBoard = board.getEmptyBoard();
   let isGameRunning = true;
   let currentPlayer = "X";
-  let currentBot = "O"
+  let winningPlayer = false;
+  let itsATie = false;
 
   while (isGameRunning) {
     board.displayBoard(gameBoard);
@@ -34,7 +35,6 @@ function main() {
     if (gameMode === 1) {
        let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
        gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
-       currentPlayer = currentPlayer === "X" ? "O" : "X";
     } else if (gameMode === 2) {
       console.log("under construction");
       break;    
@@ -42,8 +42,21 @@ function main() {
       let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
       board.displayBoard(gameBoard);
-      let botCoord = coordinate.getRandomAiCoordinates(gameBoard, currentBot);
-      gameBoard[botCoord[0]][botCoord[1]] = currentBot;
+      winningPlayer = board.getWinningPlayer(gameBoard);
+      if (winningPlayer) {
+        board.displayBoard(gameBoard)
+        console.log(`${currentPlayer} wins!`)
+        break
+      }
+      itsATie = board.isBoardFull(gameBoard);
+      if (itsATie) {
+        board.displayBoard(gameBoard)
+        console.log("It's a tie!")
+        break
+      }
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+      let botCoord = coordinate.getRandomAiCoordinates(gameBoard, currentPlayer);
+      gameBoard[botCoord[0]][botCoord[1]] = currentPlayer;
     } else if (gameMode === 4) {
       console.log("under construction");
       break;
@@ -55,18 +68,19 @@ function main() {
         should either stop displaying a winning/tie message 
         OR continue the while loop
         */
-    let winningPlayer = board.getWinningPlayer(gameBoard);
+    winningPlayer = board.getWinningPlayer(gameBoard);
     if (winningPlayer) {
       board.displayBoard(gameBoard)
       console.log(`${currentPlayer} wins!`)
       break
     }
-    let itsATie = board.isBoardFull(gameBoard);
+    itsATie = board.isBoardFull(gameBoard);
     if (itsATie) {
       board.displayBoard(gameBoard)
       console.log("It's a tie!")
       break
     }
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
 }
 
