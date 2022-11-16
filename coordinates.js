@@ -56,7 +56,17 @@ module.exports = {
     newCoordinates.push(coordinates[1] - 1);
     return newCoordinates.join("").toString();
   },
-  getRandomAiCoordinates: function (board, current_player) {
+  getRandomAiCoordinates: function (board, current_bot) {
+    console.log("Bot-move");
+    let moveValid = false;
+    while (moveValid) {
+      let randomCoord1 = getRandomInt(3);
+      let randomCoord2 = getRandomInt(3);
+      if (board[randomCoord1][randomCoord2] === ".") {
+        moveValid = true;
+        
+      }
+    }
     /*
         Should return a tuple of 2 numbers. 
         Each number should be between 0-2.
