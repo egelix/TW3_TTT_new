@@ -43,7 +43,14 @@ module.exports = {
     },
     pickRandomBotName: function (names) {
         return names[coordinate.getRandomInt(names.length)];
-    }
+    },
+    assignRandomPlayerOne: function (name1, name2) {
+        let names = [name1, name2];
+        return names[module.exports.getRandomInt(2)]
+    },
+    getRandomInt: function (max) {
+        return Math.floor(Math.random() * max);
+    },
 }
 
 

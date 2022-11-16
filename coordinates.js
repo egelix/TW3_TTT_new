@@ -3,15 +3,15 @@ const POSSIBLE_COORD1 = ['a', 'b', 'c'];
 const POSSIBLE_COORD2 = ['1', '2', '3'];
 
 module.exports = {
-  getPlayerMove: function (board, currentPlayer, name1, name2) {
+  getPlayerMove: function (board, currentPlayer) {
     let coordinates = '';
     let newCoordinates = '';
-    if (currentPlayer === 'X') {
-      console.log(`\n${name1}, please enter your move: `);
-    } else {
-      console.log(`\n${name2}, please enter your move: `);
-    }
-
+    // if (currentPlayer === 'X') {
+    //   console.log(`\n${name1}, please enter your move: `);
+    // } else {
+    //   console.log(`\n${name2}, please enter your move: `);
+    // }
+    console.log(`${currentPlayer}... please enter your move:`)
     while (true) {
       coordinates = prompt();
       if (coordinates === '') {
@@ -43,8 +43,8 @@ module.exports = {
     newCoordinates.push(coordinates[1] - 1);
     return newCoordinates.join('').toString();
   },
-  getRandomAiCoordinates: function (board, current_bot) {
-    console.log('Bot-move');
+  getRandomAiCoordinates: function (board, currentPlayer) {
+    console.log(`${currentPlayer} is on the move`);
     while (true) {
       let randomCoord1 = module.exports.getRandomInt(3);
       let randomCoord2 = module.exports.getRandomInt(3);

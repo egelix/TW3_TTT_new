@@ -14,11 +14,13 @@ async function main() {
   console.clear();
   let gameBoard = board.getEmptyBoard();
   let isGameRunning = true;
-  let currentPlayer = 'X';
   let winningPlayer = false;
   let itsATie = false;
   let name1 = player.getNameOne(gameMode);
   let name2 = player.getNameTwo(gameMode);
+  let player1 = player.assignRandomPlayerOne(name1, name2);
+  let player2 = player1 === name1 ? name2 : name1;
+  let currentPlayer = player1;
   // let botNames = ['Her-bot', 'Ro-Bot', 'Elisa-Bot', 'Ro-Botra', 'Bot-rand'];
   // if (gameMode === 1) {
   //   console.log('Player 1 please enter your name: ');
@@ -42,11 +44,10 @@ async function main() {
   //     `${name1}, you will be playing against the indominable ${name2}`
   //   );
   // }
-  console.clear();
-  console.log(`${name1} vs ${name2}\n`)
+  
   while (isGameRunning) {
     console.clear();
-    console.log(`${name1} vs ${name2}\n`)
+    console.log(`     ${player1} vs ${player2}\n`)
     board.displayBoard(gameBoard);
 
 
@@ -54,9 +55,7 @@ async function main() {
       await sleep(500);
       let humanCoord = coordinate.getPlayerMove(
         gameBoard,
-        currentPlayer,
-        name1,
-        name2
+        currentPlayer
       );
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
     } else if (gameMode === 2) {
@@ -67,7 +66,7 @@ async function main() {
       gameBoard[botCoord[0]][botCoord[1]] = currentPlayer;
       await sleep(2000);
     } else if (gameMode === 3) {
-      let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer, name1);
+      let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
       board.displayBoard(gameBoard);
       winningPlayer = board.getWinningPlayer(gameBoard);
@@ -82,7 +81,7 @@ async function main() {
         console.log("It's a tie!");
         break;
       }
-      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      currentPlayer = currentPlayer === player1 ? player2 : player1;
       let botCoord = coordinate.getRandomAiCoordinates(
         gameBoard,
         currentPlayer
@@ -107,7 +106,7 @@ async function main() {
       console.log("\nIt's a tie!\n");
       break;
     }
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    currentPlayer = currentPlayer === player1 ? player2 : player1;
   }
 
 // function pickRandomBotName(names) {
