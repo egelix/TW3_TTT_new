@@ -61,8 +61,8 @@ module.exports = {
   getRandomAiCoordinates: function (board, current_bot) {
     console.log("Bot-move");
       while (true) {
-      let randomCoord1 = getRandomInt(3);
-      let randomCoord2 = getRandomInt(3);
+      let randomCoord1 = module.exports.getRandomInt(3);
+      let randomCoord2 = module.exports.getRandomInt(3);
       if (board[randomCoord1][randomCoord2] === ".") {
         let currentBotMove = "" + randomCoord1 + randomCoord2;
         return currentBotMove;
