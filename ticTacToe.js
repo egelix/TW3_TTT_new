@@ -47,17 +47,15 @@ async function main() {
   
   while (isGameRunning) {
     console.clear();
-    console.log(`     ${player1} vs ${player2}\n`)
+    console.log(`     ${player1} (X) vs ${player2} (O)\n`)
     board.displayBoard(gameBoard);
+    console.log('');
 
-
+    let playerCoord = '';
     if (gameMode === 1) {
       await sleep(500);
-      let humanCoord = coordinate.getPlayerMove(
-        gameBoard,
-        currentPlayer
-      );
-      gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
+      playerCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
+      gameBoard[playerCoord[0]][playerCoord[1]] = currentPlayer === player1 ? "X" : "O";
     } else if (gameMode === 2) {
       let botCoord = coordinate.getRandomAiCoordinates(
         gameBoard,
