@@ -9,7 +9,9 @@ module.exports = {
     console.log(`Player ${current_player}, please enter coordinates: `)
     while (true) {
       coordinates = prompt();          
-      if (POSSIBLE_COORD1.includes(coordinates[0].toLowerCase()) && POSSIBLE_COORD2.includes(coordinates[1])) {
+      if (coordinates === "") {
+      console.log("Please enter a move:")
+      } else if (POSSIBLE_COORD1.includes(coordinates[0].toLowerCase()) && POSSIBLE_COORD2.includes(coordinates[1])) {
         newCoordinates = module.exports.translateCoordinates(coordinates);
         if (board[newCoordinates[0]][newCoordinates[1]] === ".") {
           return newCoordinates;
@@ -154,4 +156,4 @@ function getRandomInt(max) {
 //   ["X", "X", "O"],
 // ];
 // console.log(module.exports.getPlayerMove(board_1, "X"));
-console.log(module.exports.getRandomAiCoordinates(board_1, "X"))
+// console.log(module.exports.getRandomAiCoordinates(board_1, "X"))
