@@ -2,13 +2,16 @@ const prompt = require('prompt-sync')({ sigint: true });
 const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
 
 const HUMAN_VS_HUMAN = 1;
 const RANDOM_AI_VS_RANDOM_AI = 2;
 const HUMAN_VS_RANDOM_AI = 3;
 const HUMAN_VS_UNBEATABLE_AI = 4;
 
-function main() {
+async function main() {
   let gameMode = menu.getMenuOption();
   let gameBoard = board.getEmptyBoard();
   let isGameRunning = true;
@@ -18,18 +21,26 @@ function main() {
   let name1 = "";
   let name2 = "";
   let botNames = ["Her-bot", "Ro-Bot", "Elisa-Bot", "Ro-Botra", "Bot-rand"]
-  if (gameMode !== "2") {
+  if (gameMode === 1) {
     console.log("Player 1 please enter your name: ");
     name1 = prompt();
-    if (gameMode === "1") {
-      console.log("Player 2 please enter your name: ");
-      name2 = prompt();
-    } else {
-      name2 = pickRandomBotName(botNames);
-    }
-
-  } else {
-
+    console.log("Player 2 please enter your name: ");
+    name2 = prompt();
+    console.log(`${name1} will be playing against ${name2}`)
+  } else if (gameMode === 2) {
+    name1 = pickRandomBotName(botNames);
+    name2 = pickRandomBotName(botNames);
+    console.log(`${name1} will be playing against ${name2}!`)
+  } else if (gameMode === 3) {
+    console.log("Player 1 please enter your name: ");
+    name1 = prompt();
+    name2 = pickRandomBotName(botNames);
+    console.log(`${name1}, you will be playing against ${name2}`)
+  } else if (gameMode === 4) {
+    console.log("Player 1 please enter your name: ");
+    name1 = prompt();
+    name2 = pickRandomBotName(botNames);
+    console.log(`${name1}, you will be playing against the indominable ${name2}`)
   }
 
   while (isGameRunning) {
@@ -55,6 +66,7 @@ function main() {
     } else if (gameMode === 2) {
       let botCoord = coordinate.getRandomAiCoordinates(gameBoard, currentPlayer);
       gameBoard[botCoord[0]][botCoord[1]] = currentPlayer;
+      await sleep(2000);
     } else if (gameMode === 3) {
       let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
@@ -106,3 +118,4 @@ function pickRandomBotName(names) {
 }
 
 main();
+
