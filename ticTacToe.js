@@ -1,3 +1,4 @@
+const prompt = require('prompt-sync')({ sigint: true });
 const menu = require("./menu"); // use it e.g. like menu.get_menu_option()
 const board = require("./board");
 const coordinate = require("./coordinates");
@@ -14,6 +15,22 @@ function main() {
   let currentPlayer = "X";
   let winningPlayer = false;
   let itsATie = false;
+  let name1 = "";
+  let name2 = "";
+  let botNames = ["Her-bot", "Ro-Bot", "Elisa-Bot", "Ro-Botra", "Bot-rand"]
+  if (gameMode !== "2") {
+    console.log("Player 1 please enter your name: ");
+    name1 = prompt();
+    if (gameMode === "1") {
+      console.log("Player 2 please enter your name: ");
+      name2 = prompt();
+    } else {
+      name2 = pickRandomBotName(botNames);
+    }
+
+  } else {
+
+  }
 
   while (isGameRunning) {
     board.displayBoard(gameBoard);
@@ -82,6 +99,10 @@ function main() {
     }
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
+
+function pickRandomBotName(names) {
+  return names[coordinate.getRandomInt(names.length)]
+}
 }
 
 main();

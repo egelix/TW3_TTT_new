@@ -88,11 +88,11 @@ module.exports = {
         should be returned.
         */
   },
+  getRandomInt: function (max) {
+    return Math.floor(Math.random() * max)
+  }
 };
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
-}
 // run this function to test whether you have correctly implemented the other functions
 // function checkCoordinates() {
   board_1 = [
