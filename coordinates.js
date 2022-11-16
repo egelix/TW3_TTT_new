@@ -7,9 +7,9 @@ module.exports = {
     let coordinates = '';
     let newCoordinates = '';
     if (currentPlayer === 'X') {
-      console.log(`Player ${name1}, please enter coordinates: `);
+      console.log(`\n${name1}, please enter your move: `);
     } else {
-      console.log(`Player ${name2}, please enter coordinates: `);
+      console.log(`\n${name2}, please enter your move: `);
     }
 
     while (true) {
