@@ -58,13 +58,12 @@ module.exports = {
   },
   getRandomAiCoordinates: function (board, current_bot) {
     console.log("Bot-move");
-    let moveValid = false;
-    while (moveValid) {
+      while (true) {
       let randomCoord1 = getRandomInt(3);
       let randomCoord2 = getRandomInt(3);
       if (board[randomCoord1][randomCoord2] === ".") {
-        moveValid = true;
-        
+        let currentBotMove = "" + randomCoord1 + randomCoord2;
+        return currentBotMove;
       }
     }
     /*
@@ -94,11 +93,11 @@ function getRandomInt(max) {
 }
 // run this function to test whether you have correctly implemented the other functions
 // function checkCoordinates() {
-//   board_1 = [
-//     ["X", "X", "."],
-//     ["X", ".", "."],
-//     ["X", "X", "."],
-//   ];
+  board_1 = [
+    ["X", "X", "."],
+    ["X", ".", "."],
+    ["X", "X", "."],
+];
 //   console.log(
 //     "It should console.log the coordinates selected by the human player"
 //   );
@@ -155,3 +154,4 @@ function getRandomInt(max) {
 //   ["X", "X", "O"],
 // ];
 // console.log(module.exports.getPlayerMove(board_1, "X"));
+console.log(module.exports.getRandomAiCoordinates(board_1, "X"))
