@@ -57,11 +57,13 @@ function main() {
         */
     let winningPlayer = board.getWinningPlayer(gameBoard);
     if (winningPlayer) {
+      board.displayBoard(gameBoard)
       console.log(`${currentPlayer} wins!`)
       break
     }
     let itsATie = board.isBoardFull(gameBoard);
     if (itsATie) {
+      board.displayBoard(gameBoard)
       console.log("It's a tie!")
       break
     }
