@@ -56,7 +56,12 @@ async function main() {
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
         */
     if (gameMode === 1) {
-      let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer, name1, name2);
+      let humanCoord = coordinate.getPlayerMove(
+        gameBoard,
+        currentPlayer,
+        name1,
+        name2
+      );
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
     } else if (gameMode === 2) {
       let botCoord = coordinate.getRandomAiCoordinates(
@@ -66,7 +71,7 @@ async function main() {
       gameBoard[botCoord[0]][botCoord[1]] = currentPlayer;
       await sleep(2000);
     } else if (gameMode === 3) {
-      let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer,);
+      let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer, name1);
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
       board.displayBoard(gameBoard);
       winningPlayer = board.getWinningPlayer(gameBoard);
@@ -92,12 +97,6 @@ async function main() {
       break;
     }
 
-    /* TODO 
-
-        based on the values of `winning_player` and `its_a_tie` the program
-        should either stop displaying a winning/tie message 
-        OR continue the while loop
-        */
     winningPlayer = board.getWinningPlayer(gameBoard);
     if (winningPlayer) {
       board.displayBoard(gameBoard);
