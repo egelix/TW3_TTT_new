@@ -1,4 +1,5 @@
 const prompt = require('prompt-sync')();
+const coordinate = require('./coordinates');
 const sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
@@ -12,7 +13,7 @@ module.exports = {
             name1 = prompt();
             
           } else if (gameMode === 2) {
-            name1 = pickRandomBotName(botNames);
+            name1 = module.exports.pickRandomBotName(botNames);
           } else if (gameMode === 3) {
             console.log('Player 1 please enter your name: ');
             name1 = prompt();
@@ -30,11 +31,11 @@ module.exports = {
             console.log('Player 2 please enter your name: ');
             name2 = prompt();
           } else if (gameMode === 2) {
-            name2 = pickRandomBotName(botNames);
+            name2 = module.exports.pickRandomBotName(botNames);
           } else if (gameMode === 3) {
-            name2 = pickRandomBotName(botNames);
+            name2 = module.exports.pickRandomBotName(botNames);
           } else if (gameMode === 4) {
-            name2 = pickRandomBotName(botNames);
+            name2 = module.exports.pickRandomBotName(botNames);
             console.log(
             );
           }
