@@ -33,11 +33,11 @@ function main() {
         get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
         */
     if (gameMode === 1) {
-       let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
-       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
+      let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
+      gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
     } else if (gameMode === 2) {
-      console.log("under construction");
-      break;    
+      let botCoord = coordinate.getRandomAiCoordinates(gameBoard, currentPlayer);
+      gameBoard[botCoord[0]][botCoord[1]] = currentPlayer;
     } else if (gameMode === 3) {
       let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
