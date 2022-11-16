@@ -36,14 +36,14 @@ function main() {
        gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
        currentPlayer = currentPlayer === "X" ? "O" : "X";
     } else if (gameMode === 2) {
+      console.log("under construction");
+      break;    
+    } else if (gameMode === 3) {
       let humanCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
       gameBoard[humanCoord[0]][humanCoord[1]] = currentPlayer;
       board.displayBoard(gameBoard);
       let botCoord = coordinate.getRandomAiCoordinates(gameBoard, currentBot);
       gameBoard[botCoord[0]][botCoord[1]] = currentBot;
-    } else if (gameMode === 3) {
-      console.log("under construction");
-      break;
     } else if (gameMode === 4) {
       console.log("under construction");
       break;
