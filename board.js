@@ -1,50 +1,34 @@
 module.exports = {
-  
-  getEmptyBoard: function () 
-  {
-    return [[".", ".", "."], [".", ".", "."], [".", ".", "."]];
+  getEmptyBoard: function () {
+    return [
+      ['.', '.', '.'],
+      ['.', '.', '.'],
+      ['.', '.', '.'],
+    ];
   },
 
   displayBoard: function (board) {
-    console.log("       ","1"," ","2"," ","3")
-    console.log(`    A   ${board[0].join(" | ")}`)
-    console.log("       ---+---+---")
-    console.log(`    B   ${board[1].join(" | ")}`)
-    console.log("       ---+---+---")
-    console.log(`    C   ${board[2].join(" | ")}`)
-    console.log("       ---+---+---")
- 
-        // Should console.log the tic tac toe board in a format similar to
-        //     1   2   3
-        //     A   X | O | . 
-        //     ---+---+---
-        //     B   X | O | .
-        //     --+---+---
-        //     C   0 | X | . 
-        //     --+---+---
-        // */
+    console.log('       ', '1', ' ', '2', ' ', '3');
+    console.log(`    A   ${board[0].join(' | ')}`);
+    console.log('       ---+---+---');
+    console.log(`    B   ${board[1].join(' | ')}`);
+    console.log('       ---+---+---');
+    console.log(`    C   ${board[2].join(' | ')}`);
+    console.log('       ---+---+---');
   },
 
   isBoardFull: function (board) {
     let boardFull = true;
     for (let i = 0; i < board.length; i++) {
-      if (board[i].includes(".")) {
+      if (board[i].includes('.')) {
         boardFull = false;
       }
-      }
+    }
     return boardFull;
-    },
-    /*
-        should return True if there are no more empty place on the board,
-        otherwise should return False
-        */
-  
+  },
 
   getWinningPlayer: function (board) {
-    if (
-      board[0][0] === 'X' && 
-      board[0][1] === 'X' && 
-      board[0][2] === 'X') {
+    if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X') {
       return true;
     } else if (
       board[1][0] === 'X' &&
@@ -139,15 +123,6 @@ module.exports = {
     } else {
       return false;
     }
-    // board[0][0] && board[0][1] && board [0][2] === "X" ? console.log() 
-    
-
-
-
-    /*
-      Should return the player that wins based on the tic tac toe rules.
-      If no player has won, than "None" is returned.
-      */
   },
 };
 
@@ -161,11 +136,11 @@ module.exports = {
 //   console.log(`Should give out:"
 
 //         1   2   3
-//     A   X | O | . 
+//     A   X | O | .
 //        ---+---+---
 //     B   X | O | .
 //        ---+---+---
-//     C   0 | X | . 
+//     C   0 | X | .
 //        ---+---+---`);
 //   module.exports.displayBoard(board);
 
