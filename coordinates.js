@@ -41,8 +41,7 @@ module.exports = {
     newCoordinates.push(coordinates[1] - 1);
     return newCoordinates.join('').toString();
   },
-  getRandomAiCoordinates: async function (board, currentPlayer) {
-    await sleep(2000);
+  getRandomAiCoordinates: function (board, currentPlayer) {
     console.log(`${currentPlayer} is on the move`);
     while (true) {
       let randomCoord1 = module.exports.getRandomInt(3);
