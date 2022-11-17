@@ -1,8 +1,22 @@
+const board = require("./board");
+
 module.exports = {
-    botStartsFirstMove: function () {
+    getBotXCoord: function (board, bot, gameRound, playerCoord) {
+      if (gameRound === 1) {
+        return module.exports.botXFirstMove();
+      } else if (gameRound === 2) {
+        return module.exports.botXSecondMove(board, playerCoord);
+      } else if (module.exports.takeTheWin(board,bot) === false) {
+        return module.exports.takeTheWin(board, playerCoord)
+      } else {
+        return module.exports.preventLosing(board, bot)
+      }
+    },
+
+    botXFirstMove: function () {
         return "22"
     },
-    botStartsSecondMove: function (board, playerCoord) {
+    botXSecondMove: function (board, playerCoord) {
         if (playerCoord === "11") {
             return "00"
         }
@@ -79,8 +93,11 @@ module.exports = {
           }
           else if (board[2][0] === '.' && board[1][1] === bot && board[0][2] === '.') {
             return board[2][0];
-          } 
-        },
+          }
+          else { 
+            return false
+          }   
+      },
 
         preventLosing: function (board, bot) {
           let opponent = bot === "X" ? "O" : "X"
@@ -155,8 +172,10 @@ module.exports = {
           }
           else if (board[2][0] === '.' && board[1][1] === opponent && board[0][2] === '.') {
             return board[2][0];
-          } 
+          }
+          else {
+            return false
         }
 }
-
+}
    
