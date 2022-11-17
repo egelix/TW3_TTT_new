@@ -90,3 +90,9 @@ module.exports = {
     return Math.floor(Math.random() * max);
   },
 };
+// let testBoard =[
+//     ['.', '.', '.'],
+//     ['.', '.', '.'],
+//     ['.', '.', '.'],
+//   ];
+// console.log(module.exports.getHumanOrUnbeatableCoord((testBoard, "X", "Her-Bot", "Her-Bot", "", 1)))

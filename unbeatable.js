@@ -3,19 +3,22 @@ const board = require("./board");
 module.exports = {
     getBotXCoord: function (board, bot, gameRound, playerCoord) {
       if (gameRound === 1) {
-        return module.exports.botXFirstMove();
+        return "22";
       } else if (gameRound === 2) {
         return module.exports.botXSecondMove(board, playerCoord);
       } else if (module.exports.takeTheWin(board,bot) === false) {
-        return module.exports.takeTheWin(board, playerCoord)
+        return module.exports.takeTheWin(board, bot)
       } else {
         return module.exports.preventLosing(board, bot)
       }
     },
-
-    botXFirstMove: function () {
-        return "22"
+    getBotOCoord: function (board, bot, gameRound, playerCoord) {
+       
     },
+
+    // botXFirstMove: function () {
+    //     return "22"
+    // },
     botXSecondMove: function (board, playerCoord) {
         if (playerCoord === "11") {
             return "00"
@@ -178,4 +181,9 @@ module.exports = {
         }
 }
 }
-   
+// let testBoard =[
+//     ['.', '.', '.'],
+//     ['.', '.', '.'],
+//     ['.', '.', '.'],
+//   ];
+// console.log(module.exports.getBotXCoord(testBoard, "X", 1, undefined));
