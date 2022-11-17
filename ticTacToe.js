@@ -19,8 +19,7 @@ async function main() {
   let botNames = ['Her-bot', 'Ro-Bot', 'Elisa-Bot', 'Ro-Botra', 'Bot-rand'];
   let name1 = player.getNameOne(gameMode);
   let name2 = player.getNameTwo(gameMode);
-  let player1 = name2;
-      // player.assignRandomPlayerOne(name1, name2);
+  let player1 = player.assignRandomPlayerOne(name1, name2);
   let player2 = player1 === name1 ? name2 : name1;
   let currentPlayer = player1;
   let botStartingPlayer = player1 === name2 ? true : false;

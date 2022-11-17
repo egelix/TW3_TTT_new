@@ -63,17 +63,17 @@ module.exports = {
 
   getHumanOrUnbeatableCoord: function (board, bot, currentPlayer, name2, gameRound) {
     if (currentPlayer === name2) {
-      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer, gameRound);
+      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer, name2, gameRound);
     } else {
       return module.exports.getPlayerMove(board, currentPlayer);
     }
   },
 
-  getUnbeatableAiCoordinates: function (board, bot, gameRound, playerCoord) {
+  getUnbeatableAiCoordinates: function (board, bot, currentPlayer, name2, gameRound) {
     if (bot === "X") {
-      return unbeatable.getBotXCoord(board, bot, gameRound, playerCoord);
+      return unbeatable.getBotXCoord(board, bot, currentPlayer, name2, gameRound);
     } else {
-      return unbeatable.getBotOCoord(board, bot, gameRound, playerCoord);
+      return unbeatable.getBotOCoord(board, bot, currentPlayer, name2, gameRound);
     }
     
     /*
@@ -92,7 +92,9 @@ module.exports = {
 };
 // let testBoard =[
 //     ['.', '.', '.'],
-//     ['.', '.', '.'],
-//     ['.', '.', '.'],
+//     ['.', 'O', '.'],
+//     ['.', '.', 'X'],
 //   ];
-// console.log(module.exports.getHumanOrUnbeatableCoord((testBoard, "X", "Her-Bot", "Her-Bot", "", 1)))
+// let gameRound = 3
+// console.log(module.exports.getHumanOrUnbeatableCoord(testBoard, "X", "Her-Bot", "Her-Bot", gameRound));
+// console.log(gameRound)

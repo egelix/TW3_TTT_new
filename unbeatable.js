@@ -1,26 +1,29 @@
 const board = require("./board");
 
 module.exports = {
-    getBotXCoord: function (board, bot, gameRound, ) {
-      if (gameRound === 1) {
+    getBotXCoord: function (board, bot, currentPlayer, name2, gameRound) {
+        if (gameRound === 1) {
         return "22";
-      } else if (gameRound === 2) {
-        return module.exports.botXSecondMove(board,);
-      } else if (module.exports.takeTheWin(board,bot) === false) {
-        return module.exports.takeTheWin(board, bot)
+      } else if (gameRound === 3) {
+        return module.exports.botXSecondMove(board, bot, currentPlayer, name2, gameRound);
+      } else if (module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound) !== false) {
+        return module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound);
       } else {
-        return module.exports.preventLosing(board, bot)
+        return module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound);
       }
+    },
+    getBotOCoord: function (board, bot, currentPlayer, name2, gameRound) {
+        return
     },
     // botXFirstMove: function () {
     //     return "22"
     // },
-    botXSecondMove: function (board) {
+    botXSecondMove: function (board, bot, currentPlayer, name2, gameRound) {
         if (board[1][1] === "O") {
             return "00"
-        }
+        } return
     },
-    takeTheWin: function (board, bot) {
+    takeTheWin: function (board, bot, currentPlayer, name2, gameRound) {
         if (board[0][0] === bot && board[0][1] === bot && board[0][2] === '.') {
             return "02";
           } 
@@ -94,11 +97,11 @@ module.exports = {
             return "20";
           }
           else { 
-            return false
+            return false;
           }   
       },
 
-        preventLosing: function (board, bot) {
+        preventLosing: function (board, bot, currentPlayer, name2, gameRound) {
           let opponent = bot === "X" ? "O" : "X"
           if (board[0][0] === opponent && board[0][1] === opponent && board[0][2] === '.') {
             return "02";
@@ -173,7 +176,7 @@ module.exports = {
             return "20";
           }
           else {
-            return false
+            return false;
         }
 }
 }
