@@ -1,3 +1,4 @@
+const unbeatable = require('./unbeatable');
 const prompt = require('prompt-sync')();
 const POSSIBLE_COORD1 = ['a', 'b', 'c'];
 const POSSIBLE_COORD2 = ['1', '2', '3'];
@@ -60,8 +61,20 @@ module.exports = {
     }
   },
 
-  getUnbeatableAiCoordinates: function (board, current_player) {
-    
+  getHumanOrUnbeatableCoord: function (botNames, currentPlayer, board) {
+    if (botNames.includes(currentPlayer)) {
+      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer);
+    } else {
+      return module.exports.getPlayerMove(board, currentPlayer);
+    }
+  },
+
+  getUnbeatableAiCoordinates: function (board, bot, gameRound, current_player) {
+    if (bot === "X") {
+      return unbeatable.getBotXCoord(board, bot, gameRound)
+    } else {
+      return unbeatable.getBotOCoord(board, bot, gameRound)
+    }
     
     /*
         Should return an array of 2 numbers. 

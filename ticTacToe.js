@@ -24,7 +24,8 @@ async function main() {
   let currentPlayer = player1;
   let botStartingPlayer = player1 === name2 ? true : false;
   let botSign = botStartingPlayer ? "X" : "O";
-    
+  let gameRound = 1;
+
   while (isGameRunning) {
     console.clear();
     console.log(`     ${player1} (X) vs ${player2} (O)\n`)
@@ -45,6 +46,7 @@ async function main() {
       break;
     }
     gameBoard[playerCoord[0]][playerCoord[1]] = currentPlayer === player1 ? "X" : "O";
+    gameRound += 1;
 
     winningPlayer = board.getWinningPlayer(gameBoard);
     if (winningPlayer) {
