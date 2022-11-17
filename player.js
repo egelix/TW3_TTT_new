@@ -52,30 +52,3 @@ module.exports = {
         return Math.floor(Math.random() * max);
     },
 }
-
-
-
-//   let name2 = '';
-//   let botNames = ['Her-bot', 'Ro-Bot', 'Elisa-Bot', 'Ro-Botra', 'Bot-rand'];
-//   if (gameMode === 1) {
-//     console.log('Player 1 please enter your name: ');
-//     name1 = prompt();
-//     console.log('Player 2 please enter your name: ');
-//     name2 = prompt();
-//   } else if (gameMode === 2) {
-//     name1 = pickRandomBotName(botNames);
-//     name2 = pickRandomBotName(botNames);
-//     console.log(`${name1} will be playing against ${name2}!`);
-//   } else if (gameMode === 3) {
-//     console.log('Player 1 please enter your name: ');
-//     name1 = prompt();
-//     name2 = pickRandomBotName(botNames);
-//     console.log(`${name1}, you will be playing against ${name2}`);
-//   } else if (gameMode === 4) {
-//     console.log('Player 1 please enter your name: ');
-//     name1 = prompt();
-//     name2 = pickRandomBotName(botNames);
-//     console.log(
-//       `${name1}, you will be playing against the indominable ${name2}`
-//     );
-//   }
