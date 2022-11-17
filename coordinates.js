@@ -54,6 +54,13 @@ module.exports = {
       }
     }
   },
+  getHumanOrBotCoord: function (botNames, currentPlayer, board) {
+    if (botNames.includes(currentPlayer)) {
+      return module.exports.getRandomAiCoordinates(board, currentPlayer);
+    } else {
+      return module.exports.getPlayerMove(board, currentPlayer);
+    }
+  },
 
   getUnbeatableAiCoordinates: function (board, current_player) {
     /*
