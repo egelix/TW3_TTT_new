@@ -61,19 +61,19 @@ module.exports = {
     }
   },
 
-  getHumanOrUnbeatableCoord: function (botNames, currentPlayer, board) {
-    if (botNames.includes(currentPlayer)) {
-      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer);
+  getHumanOrUnbeatableCoord: function (board, bot, currentPlayer, name2, playerCoord, gameRound) {
+    if (currentPlayer === name2) {
+      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer, playerCoord, gameRound);
     } else {
       return module.exports.getPlayerMove(board, currentPlayer);
     }
   },
 
-  getUnbeatableAiCoordinates: function (board, bot, gameRound, current_player) {
+  getUnbeatableAiCoordinates: function (board, bot, gameRound, playerCoord) {
     if (bot === "X") {
-      return unbeatable.getBotXCoord(board, bot, gameRound)
+      return unbeatable.getBotXCoord(board, bot, gameRound, playerCoord);
     } else {
-      return unbeatable.getBotOCoord(board, bot, gameRound)
+      return unbeatable.getBotOCoord(board, bot, gameRound, playerCoord);
     }
     
     /*

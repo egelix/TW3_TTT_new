@@ -10,6 +10,8 @@ module.exports = {
       let menu = prompt();
       if (POSSIBLE_OPTIONS.includes(menu)) {
         return parseInt(menu);
+      } else if (menu === "quit") {
+        process.exit(1);
       } else {
         console.log('Not a valid option. Please choose again: ');
       }

@@ -42,8 +42,7 @@ async function main() {
     } else if (gameMode === 3) {
       playerCoord = coordinate.getHumanOrBotCoord(botNames, currentPlayer, gameBoard);
     } else if (gameMode === 4) {
-      console.log('under construction');
-      break;
+      playerCoord = coordinate.getHumanOrUnbeatableCoord(gameBoard, botSign, currentPlayer, name2, playerCoord, gameRound);
     }
     gameBoard[playerCoord[0]][playerCoord[1]] = currentPlayer === player1 ? "X" : "O";
     gameRound += 1;
