@@ -61,9 +61,9 @@ module.exports = {
     }
   },
 
-  getHumanOrUnbeatableCoord: function (board, bot, currentPlayer, name2, playerCoord, gameRound) {
+  getHumanOrUnbeatableCoord: function (board, bot, currentPlayer, name2, gameRound) {
     if (currentPlayer === name2) {
-      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer, playerCoord, gameRound);
+      return module.exports.getUnbeatableAiCoordinates(board, bot, currentPlayer, gameRound);
     } else {
       return module.exports.getPlayerMove(board, currentPlayer);
     }
