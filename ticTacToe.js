@@ -2,7 +2,8 @@ const prompt = require('prompt-sync')({ sigint: true });
 const menu = require('./menu'); 
 const board = require('./board');
 const coordinate = require('./coordinates');
-const player = require('./player.js')
+const player = require('./player.js');
+const { ifPlayerWon, ifItsATie } = require('./board');
 const sleep = (ms) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
@@ -47,23 +48,12 @@ async function main() {
     gameBoard[playerCoord[0]][playerCoord[1]] = currentPlayer === player1 ? "X" : "O";
     gameRound += 1;
 
-    winningPlayer = board.getWinningPlayer(gameBoard);
-    if (winningPlayer) {
-      console.clear();
-      console.log(`     ${player1} (X) vs ${player2} (O)\n`)
-      board.displayBoard(gameBoard);
-      console.log(`\n${currentPlayer} wins!\n`);
+    if (board.ifPlayerWon(gameBoard, player1, player2, currentPlayer) === true || board.ifItsATie(gameBoard, player1, player2) === true) {
       break;
     }
-    itsATie = board.isBoardFull(gameBoard);
-    if (itsATie) {
-      console.clear();
-      console.log(`     ${player1} (X) vs ${player2} (O)\n`)
-      board.displayBoard(gameBoard);
-      console.log("\nIt's a tie!\n");
-      break;
-    }
+
     currentPlayer = currentPlayer === player1 ? player2 : player1;
+    
   }
 }
 

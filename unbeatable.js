@@ -1,4 +1,5 @@
 const board = require("./board");
+const coordinates = require("./coordinates");
 
 module.exports = {
     getBotXCoord: function (board, bot, currentPlayer, name2, gameRound) {
@@ -14,8 +15,19 @@ module.exports = {
         return module.exports.botXThirdMove(board, bot, currentPlayer, name2, gameRound);
       }
     },
+    
     getBotOCoord: function (board, bot, currentPlayer, name2, gameRound) {
-        return
+        if (board[1][1] === ".") {
+            return "11";
+        } else if (gameRound === 2 && board[1][1] !== ".") {
+            return "20"
+        } else if (module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound) !== false) {
+            return module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound);
+        } else if (module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound) !==false) {
+            return module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound);
+        } else {
+            // return module.exports.getRandomAiCoordinates(board, bot, currentPlayer, name2, gameRound);
+        }
     },
  
     botXSecondMove: function (board, bot, currentPlayer, name2, gameRound) {
@@ -46,6 +58,10 @@ module.exports = {
         } else {
             return "00";
         }
+    },
+    
+    botOSecondMove: function (board, bot, currentPlayer, name2, gameRound) {
+        return;
     },
 
     takeTheWin: function (board, bot, currentPlayer, name2, gameRound) {

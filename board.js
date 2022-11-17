@@ -1,3 +1,5 @@
+const prompt = require('prompt-sync')({ sigint: true });
+
 module.exports = {
   getEmptyBoard: function () {
     return [
@@ -17,6 +19,16 @@ module.exports = {
     console.log('       ---+---+---');
   },
 
+  ifItsATie: function (board, player1, player2) {
+    itsATie = module.exports.isBoardFull(board);
+    if (itsATie) {
+      console.clear();
+      console.log(`     ${player1} (X) vs ${player2} (O)\n`)
+      module.exports.displayBoard(board);
+      console.log("\nIt's a tie!\n");
+      }
+  },
+
   isBoardFull: function (board) {
     let boardFull = true;
     for (let i = 0; i < board.length; i++) {
@@ -25,6 +37,17 @@ module.exports = {
       }
     }
     return boardFull;
+  },
+
+  ifPlayerWon: function (board, player1, player2, currentPlayer) {
+    winningPlayer = module.exports.getWinningPlayer(board);
+    if (winningPlayer) {
+      console.clear();
+      console.log(`     ${player1} (X) vs ${player2} (O)\n`)
+      module.exports.displayBoard(board);
+      console.log(`\n${currentPlayer} wins!\n`);
+      return true;
+    }
   },
 
   getWinningPlayer: function (board) {
