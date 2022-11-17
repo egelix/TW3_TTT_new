@@ -41,7 +41,8 @@ module.exports = {
     newCoordinates.push(coordinates[1] - 1);
     return newCoordinates.join('').toString();
   },
-  getRandomAiCoordinates: function (board, currentPlayer) {
+  getRandomAiCoordinates: async function (board, currentPlayer) {
+    await sleep(2000);
     console.log(`${currentPlayer} is on the move`);
     while (true) {
       let randomCoord1 = module.exports.getRandomInt(3);
@@ -61,6 +62,8 @@ module.exports = {
   },
 
   getUnbeatableAiCoordinates: function (board, current_player) {
+    
+    
     /*
         Should return an array of 2 numbers. 
         Each number should be between 0-2.
