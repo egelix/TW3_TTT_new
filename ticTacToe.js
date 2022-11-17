@@ -47,6 +47,7 @@ async function main() {
     winningPlayer = board.getWinningPlayer(gameBoard);
     if (winningPlayer) {
       console.clear();
+      console.log(`     ${player1} (X) vs ${player2} (O)\n`)
       board.displayBoard(gameBoard);
       console.log(`\n${currentPlayer} wins!\n`);
       break;
@@ -54,6 +55,7 @@ async function main() {
     itsATie = board.isBoardFull(gameBoard);
     if (itsATie) {
       console.clear();
+      console.log(`     ${player1} (X) vs ${player2} (O)\n`)
       board.displayBoard(gameBoard);
       console.log("\nIt's a tie!\n");
       break;
