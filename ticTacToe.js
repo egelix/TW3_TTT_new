@@ -23,6 +23,7 @@ async function main() {
   let player2 = player1 === name1 ? name2 : name1;
   let currentPlayer = player1;
   let botStartingPlayer = player1 === name2 ? true : false;
+  let botSign = botStartingPlayer ? "X" : "O";
     
   while (isGameRunning) {
     console.clear();
