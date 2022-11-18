@@ -34,7 +34,6 @@ async function main() {
     console.log('');
 
     let playerCoord = '';
-    let latestMove = playerCoord;
     if (gameMode === 1) {
       await sleep(500);
       playerCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
