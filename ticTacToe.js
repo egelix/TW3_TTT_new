@@ -19,7 +19,7 @@ async function main() {
   let itsATie = false;
   let botNames = ['Her-bot', 'Ro-Bot', 'Elisa-Bot', 'Ro-Botra', 'Bot-rand'];
   let name1 = player.getNameOne(gameMode);
-  let name2 = player.getNameTwo(gameMode);
+  let name2 = player.getNameTwo(gameMode, name1);
   let player1 = player.assignRandomPlayerOne(name1, name2);
   let player2 = player1 === name1 ? name2 : name1;
   let currentPlayer = player1;
@@ -34,6 +34,7 @@ async function main() {
     console.log('');
 
     let playerCoord = '';
+    let latestMove = playerCoord;
     if (gameMode === 1) {
       await sleep(500);
       playerCoord = coordinate.getPlayerMove(gameBoard, currentPlayer);
@@ -54,7 +55,7 @@ async function main() {
 
     currentPlayer = currentPlayer === player1 ? player2 : player1;
     
-  }
+  
 }
-
+};
 main();

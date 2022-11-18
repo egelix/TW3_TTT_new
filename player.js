@@ -23,9 +23,10 @@ module.exports = {
           }
           return name1
     },
-    getNameTwo: function (gameMode) {
+    getNameTwo: function (gameMode, name1) {
         let name2 = '';
         let botNames = ['Her-bot', 'Ro-Bot', 'Elisa-Bot', 'Ro-Botra', 'Bot-rand'];
+        let availNames = botNames.splice(botNames.indexOf(name1), 1);
         if (gameMode === 1) {
             console.clear();
             console.log('Player 2 please enter your name: ');

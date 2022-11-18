@@ -1,5 +1,5 @@
 const board = require("./board");
-const coordinates = require("./coordinates");
+const coordinate = require('./coordinates');
 
 module.exports = {
     getBotXCoord: function (board, bot, currentPlayer, name2, gameRound) {
@@ -14,20 +14,6 @@ module.exports = {
       } else if (gameRound === 5) {
         return module.exports.botXThirdMove(board, bot, currentPlayer, name2, gameRound);
       }
-    },
-    
-    getBotOCoord: function (board, bot, currentPlayer, name2, gameRound) {
-        if (board[1][1] === ".") {
-            return "11";
-        } else if (gameRound === 2 && board[1][1] !== ".") {
-            return "20"
-        } else if (module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound) !== false) {
-            return module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound);
-        } else if (module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound) !==false) {
-            return module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound);
-        } else {
-            // return module.exports.getRandomAiCoordinates(board, bot, currentPlayer, name2, gameRound);
-        }
     },
  
     botXSecondMove: function (board, bot, currentPlayer, name2, gameRound) {
@@ -59,9 +45,61 @@ module.exports = {
             return "00";
         }
     },
+        
+    getBotOCoord: function (board, bot, currentPlayer, name2, gameRound) {
+        if (gameRound === 2) {
+            return module.exports.botOFirstMove(board, bot, currentPlayer, name2, gameRound);
+        } else if (gameRound === 4) {
+            return module.exports.botOSecondMove(board, bot, currentPlayer, name2, gameRound);
+        } else if (gameRound === 6) {
+            return module.exports.botOThirdMove(board, bot, currentPlayer, name2, gameRound);
+        } else if (gameRound === 8) {
+            return module.exports.botOFourthMove(board, bot, currentPlayer, name2, gameRound);
+        }
+            // return module.exports.getRandomAiCoordinates(board, bot, currentPlayer, name2, gameRound);
+        
+    },
+
+    botOFirstMove: function (board, bot, currentPlayer, name2, gameRound) {
+        if (board[1][1] === ".") {
+            return "11";
+        } else if (board[1][1] === "X") {
+            return "20";
+        }
+    },
     
     botOSecondMove: function (board, bot, currentPlayer, name2, gameRound) {
-        return;
+        if (module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound) !==false) {
+        return module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound);
+        } else if (board[1][1] === "X") {
+            return "00";
+        } else if (board[1][0] === "X" && board[1][2] === "X" || board[0][1] === "X" && board[2][1] === "X") {
+            return "00";
+        } else if (board[1][0] === "X" && board[0][1] === "X" || board[1][0] === "X" && board[2][1] === "X" || board[1][2] === "X" && board[0][1] === "X" || board[1][2] === "X" && board[2][1] === "X") {
+            return "20";
+        }
+    },
+
+    botOThirdMove: function (board, bot, currentPlayer, name2, gameRound) {
+        if (module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound) !== false) {
+            return module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound);
+        } else if (module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound) !==false) {
+            return module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound);
+        } else if (board[1][0] === "X" && board[1][2] === "X" && board[2][2] === "X") {
+            return "02";
+        } else if (board[0][1] === "X" && board[2][1] === "X" && board[2][2] === "X") {
+            return "20";
+        }
+    },
+
+    botOFourthMove: function (board, bot, currentPlayer, name2, gameRound) {
+        if (module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound) !== false) {
+            return module.exports.takeTheWin(board, bot, currentPlayer, name2, gameRound);
+        } else if (module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound) !==false) {
+            return module.exports.preventLosing(board, bot, currentPlayer, name2, gameRound);
+        } else if (board[1][1] === "X") {
+            return module.exports.getRandomAiCoordinates2(board);
+        }
     },
 
     takeTheWin: function (board, bot, currentPlayer, name2, gameRound) {
@@ -219,11 +257,27 @@ module.exports = {
           else {
             return false;
         }
-}
+},
+
+getRandomAiCoordinates2: function (board) {
+    while (true) {
+      let randomCoord1 = module.exports.getRandomInt(3);
+      let randomCoord2 = module.exports.getRandomInt(3);
+      if (board[randomCoord1][randomCoord2] === '.') {
+        let currentBotMove = '' + randomCoord1 + randomCoord2;
+        return currentBotMove;
+      }
+    }
+  },
+
+  getRandomInt: function (max) {
+    return Math.floor(Math.random() * max);
+  },
 }
 // let testBoard =[
 //     ['.', '.', '.'],
 //     ['.', '.', '.'],
 //     ['.', '.', '.'],
 //   ];
-// console.log(module.exports.getBotXCoord(testBoard, "X", 1, undefined));
+
+// console.log(coordinate.getRandomAiCoordinates(testBoard, "X"))

@@ -20,12 +20,12 @@ module.exports = {
   },
 
   ifItsATie: function (board, player1, player2) {
-    itsATie = module.exports.isBoardFull(board);
-    if (itsATie) {
+    if (module.exports.isBoardFull(board) === true) {
       console.clear();
       console.log(`     ${player1} (X) vs ${player2} (O)\n`)
       module.exports.displayBoard(board);
       console.log("\nIt's a tie!\n");
+      return true;
       }
   },
 
@@ -40,8 +40,7 @@ module.exports = {
   },
 
   ifPlayerWon: function (board, player1, player2, currentPlayer) {
-    winningPlayer = module.exports.getWinningPlayer(board);
-    if (winningPlayer) {
+    if (module.exports.getWinningPlayer(board) === true) {
       console.clear();
       console.log(`     ${player1} (X) vs ${player2} (O)\n`)
       module.exports.displayBoard(board);
